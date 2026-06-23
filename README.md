@@ -1,253 +1,222 @@
-# 🌽 Hyperspectral Data Science for Corn
-
-[![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://www.python.org/)
-[![PyTorch](https://img.shields.io/badge/PyTorch-2.0%2B-red.svg)](https://pytorch.org/)
-[![Streamlit](https://img.shields.io/badge/Streamlit-1.28%2B-FF4B4B.svg)](https://streamlit.io/)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-
-> **AI-powered vomitoxin prediction in corn using hyperspectral imaging and machine learning**
-
-A complete end-to-end data science project that leverages hyperspectral imaging to predict mycotoxin contamination levels in corn samples. This project combines advanced dimensionality reduction, deep learning, and traditional ML algorithms to achieve **94.9% prediction accuracy**.
-
----
-
-## 🎯 Project Overview
-
-This project addresses a critical agricultural challenge: **rapid, non-destructive detection of vomitoxin contamination** in corn. Using hyperspectral imaging data (448 spectral bands), we developed predictive models that can:
-
-- ✅ Predict vomitoxin levels with 95% accuracy
-- ✅ Enable real-time quality assessment
-- ✅ Reduce laboratory testing costs
-- ✅ Support precision agriculture decisions
-
----
-
-## 🚀 Key Features
-
-### 📊 **Interactive Streamlit Dashboard**
-- Real-time model predictions
-- Interactive visualizations
-- Model performance comparison
-- Agricultural insights
-
-### 🤖 **Multiple ML Models**
-- **Random Forest** (Best: R² = 0.9495)
-- **XGBoost** (R² = 0.9314)
-- **Decision Tree** (R² = 0.9433)
-- **ANN (PyTorch)** (R² = 0.6638)
-- **Linear Regression** & **SVR**
-
-### 📈 **Advanced Analytics**
-- PCA dimensionality reduction (448 → 10-20 components)
-- t-SNE visualization
-- Spectral signature analysis
-- Feature importance extraction
-
----
-
-## 📁 Project Structure
-
-```
-DS_for_corn/
-│
-├── app/                          # Streamlit application
-│   ├── app.py                   # Main dashboard
-│   ├── pages/                   # Multi-page app
-│   ├── utils/                   # Helper functions
-│   └── components/              # Reusable UI components
-│
-├── data/                        # Datasets
-│   ├── Corn_dataset.xlsx       # Original data
-│   ├── X_train_pca.csv         # PCA-reduced training data
-│   ├── X_test_pca.csv          # PCA-reduced test data
-│   └── *.csv                   # Processed datasets
-│
-├── models/                      # Trained models
-│   ├── trained_ann_model.pth   # PyTorch ANN
-│   ├── best_model_*.pkl        # Scikit-learn models
-│   └── best_improved_ann.pth   # Improved ANN
-│
-├── notebooks/                   # Jupyter notebooks
-│   ├── 01_EDA_Preprocessing.ipynb
-│   ├── 02_Dimensionality_Reduction.ipynb
-│   ├── 03_ANN_PyTorch_Model.ipynb
-│   ├── 04_Traditional_ML_Models.ipynb
-│   └── 05_Final_Evaluation_Insights.ipynb
-│
-├── outputs/                     # Visualizations & results
-│   ├── *.png                   # Generated plots
-│   ├── model_results.csv       # Performance metrics
-│   └── ann_results.csv         # ANN metrics
-│
-├── reports/                     # Final reports
-│   └── final_report.txt
-│
-├── requirements.txt             # Python dependencies
-├── README.md                    # This file
-├── LICENSE                      # MIT License
-└── .gitignore                  # Git ignore rules
-```
-
----
-
-## 🛠️ Installation
-
-### Prerequisites
-- Python 3.8 or higher
-- pip package manager
-
-### Setup
-
-1. **Clone the repository**
-```bash
-git clone https://github.com/yourusername/hyperspectral-corn-analysis.git
-cd hyperspectral-corn-analysis
-```
-
-2. **Create virtual environment** (recommended)
-```bash
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-```
-
-3. **Install dependencies**
-```bash
-pip install -r requirements.txt
-```
-
----
-
-## 🎮 Usage
-
-### Run Streamlit Dashboard
-```bash
-streamlit run app/app.py
-```
-
-The dashboard will open at `http://localhost:8501`
-
-### Run Jupyter Notebooks
-```bash
-jupyter notebook
-```
-
-Navigate to `notebooks/` and run notebooks sequentially (01 → 05).
-
----
-
-## 📊 Results
-
-### Model Performance Comparison
-
-| Model | Test R² | Test RMSE | Test MAE |
-|-------|---------|-----------|----------|
-| **Random Forest** 🏆 | **0.9495** | **3,758** | **1,870** |
-| Decision Tree | 0.9433 | 3,980 | 1,688 |
-| XGBoost | 0.9314 | 4,381 | 1,996 |
-| ANN (PyTorch) | 0.6638 | 9,694 | 3,244 |
-| Linear Regression | 0.4726 | 12,142 | 4,918 |
-| SVR | -0.0376 | 17,031 | 4,171 |
-
-### Key Insights
-- **Random Forest achieved 94.9% accuracy** - production-ready!
-- Tree-based models significantly outperform linear models
-- PCA reduced dimensionality by 95% while retaining 95% variance
-- Non-destructive testing is viable for quality control
-
----
-
-## 🌾 Agricultural Applications
-
-### Practical Use Cases
-1. **Grain Processing Facilities**
-   - Real-time contamination screening
-   - Automated sorting systems
-   - Quality control dashboards
-
-2. **Precision Farming**
-   - Field-level contamination mapping
-   - Harvest timing optimization
-   - Storage condition monitoring
-
-3. **Food Safety Compliance**
-   - FDA guideline adherence
-   - Batch quality certification
-   - Supply chain transparency
-
-### Economic Impact
-- ✅ Reduce laboratory testing costs by 80%+
-- ✅ Minimize crop losses from contamination
-- ✅ Enable data-driven farm management
-- ✅ Improve food safety compliance
-
----
-
-## 🔬 Methodology
-
-### 1. Data Preprocessing
-- 500 corn samples with 448 spectral bands
-- Missing value analysis
-- Outlier detection
-- Feature scaling (StandardScaler)
-
-### 2. Dimensionality Reduction
-- PCA: 448 → 10-20 components (95% variance)
-- t-SNE for visualization
-- Feature contribution analysis
-
-### 3. Model Training
-- Train/test split: 80/20
-- Cross-validation
-- Hyperparameter tuning
-- Performance evaluation (RMSE, MAE, R²)
-
-### 4. Deployment
-- Streamlit web application
-- Interactive visualizations
-- Real-time predictions
-
----
-
-## 📚 Technologies Used
-
-### Core Libraries
-- **Python 3.8+** - Programming language
-- **PyTorch 2.0** - Deep learning framework
-- **Scikit-learn** - Machine learning algorithms
-- **XGBoost** - Gradient boosting
-- **Pandas & NumPy** - Data manipulation
-- **Matplotlib & Seaborn** - Visualization
-- **Streamlit** - Web dashboard
-
-### Development Tools
-- Jupyter Notebook
-- Git & GitHub
-- Virtual environments
-
----
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-## 🔮 Future Improvements
-
-- [ ] Expand dataset to 1000+ samples
-- [ ] Implement CNN for spatial features
-- [ ] Add multi-toxin prediction
-- [ ] Deploy to cloud (AWS/Azure)
-- [ ] Mobile application
-- [ ] Real-time camera integration
-
----
-
 <div align="center">
 
-**⭐ Star this repo if you find it useful!**
+# 🌽 SpectraCorn AI
+### Predicting Vomitoxin Contamination in Corn with Hyperspectral Imaging
 
-Made with ❤️ for precision agriculture
+*A Hackathon project that turns 448 wavelengths of light into a food-safety decision in seconds.*
+
+[![Python](https://img.shields.io/badge/Python-3.8%2B-3776AB.svg?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![PyTorch](https://img.shields.io/badge/PyTorch-2.0%2B-EE4C2C.svg?style=for-the-badge&logo=pytorch&logoColor=white)](https://pytorch.org/)
+[![Streamlit](https://img.shields.io/badge/Streamlit-1.28%2B-FF4B4B.svg?style=for-the-badge&logo=streamlit&logoColor=white)](https://streamlit.io/)
+[![License](https://img.shields.io/badge/License-MIT-2EA44F.svg?style=for-the-badge)](LICENSE)
+
+[![GitHub followers](https://img.shields.io/github/followers/VishalLokhande7?style=social)](https://github.com/VishalLokhande7)
+
+**Built by [Vishal Lokhande](https://github.com/VishalLokhande7)** as part of a team hackathon submission
 
 </div>
 
+<br>
+
+## 🧭 Navigate
+
+| | | |
+|---|---|---|
+| [💡 The Challenge](#-the-challenge) | [🔬 The Approach](#-the-approach) | [📊 The Results](#-the-results) |
+| [🛠️ Under the Hood](#%EF%B8%8F-under-the-hood) | [🌍 Why It Matters](#-why-it-matters) | [🔭 What's Next](#-whats-next) |
+| [👨‍💻 The Creator](#-the-creator) | [🤝 The Team](#-the-team) | [⭐ Support](#-support-this-project) |
+
+---
+
+## 💡 The Challenge
+
+Vomitoxin (deoxynivalenol) contamination in corn is a serious agricultural and food-safety problem — but the standard way to detect it is **slow, expensive, and destructive**: send samples to a lab, wait days for results, and destroy the sample in the process.
+
+At our hackathon, the team set out to answer one question:
+
+> **Can hyperspectral imaging + machine learning replace the lab test with something faster, cheaper, and just as accurate?**
+
+This repository is our answer.
+
+---
+
+## 🔬 The Approach
+
+Instead of physically testing each sample, we capture its **hyperspectral signature** — how it reflects light across **448 spectral bands** — and feed that signature into trained ML models that have learned what contaminated vs. clean corn "looks like" spectrally.
+
+```
+  Hyperspectral Scan  →  Preprocessing  →  PCA (448 → ~15 dims)  →  ML Model  →  ppb Prediction
+        📷                    🧹                  📉                  🤖              🎯
+```
+
+**Pipeline highlights:**
+- 🧹 Cleaned and scaled raw spectral data (`StandardScaler`, outlier checks)
+- 📉 Reduced 448 spectral bands down to a handful of components via **PCA**, retaining ~95% of the variance
+- 🧠 Trained and benchmarked **six** different algorithms, from linear baselines to deep learning
+- 🔍 Used **t-SNE** and feature-importance analysis to understand *which* wavelengths actually matter
+- 📊 Shipped it all into a live **Streamlit dashboard** for real-time, interactive predictions
+
+---
+
+## 📊 The Results
+
+| Model | Test R² | Verdict |
+|---|---|---|
+| 🥇 **Random Forest** | **0.9495** | **Best — production-ready** |
+| 🥈 Decision Tree | 0.9433 | Strong, but more overfit-prone |
+| 🥉 XGBoost | 0.9314 | Solid gradient-boosted baseline |
+| ANN (PyTorch) | 0.6638 | Underfit — needs more data to shine |
+| Linear Regression | 0.4726 | Too simple for this relationship |
+| SVR | -0.0376 | Not competitive here |
+
+<div align="center">
+
+### 🏆 **Random Forest wins: 94.95% R² — accurate enough to act on**
+
+*Tree-based ensembles dominate here because the relationship between spectral bands and toxin levels is highly non-linear — exactly what trees are built to capture.*
+
+</div>
+
+---
+
+## ✨ Inside the Dashboard
+
+<table>
+<tr>
+<td width="33%" valign="top">
+
+**📊 Live Predictions**
+Drop in a spectral sample and get an instant vomitoxin estimate — no lab, no waiting.
+
+</td>
+<td width="33%" valign="top">
+
+**📈 Model Comparison**
+See every model's accuracy side-by-side and inspect *why* Random Forest leads the pack.
+
+</td>
+<td width="33%" valign="top">
+
+**🔍 Spectral Insights**
+Visualize which of the 448 bands actually drive the prediction, via feature importance + t-SNE.
+
+</td>
+</tr>
+</table>
+
+---
+
+## 🛠️ Under the Hood
+
+<table>
+<tr>
+<td valign="top" width="25%">
+
+**Data Science**
+- Python
+- Pandas
+- NumPy
+- Scikit-Learn
+
+</td>
+<td valign="top" width="25%">
+
+**Modeling**
+- XGBoost
+- PyTorch (ANN)
+- PCA / t-SNE
+
+</td>
+<td valign="top" width="25%">
+
+**Visualization**
+- Matplotlib
+- Seaborn
+- Plotly
+
+</td>
+<td valign="top" width="25%">
+
+**Delivery**
+- Streamlit
+- Jupyter Notebook
+- Git & GitHub
+
+</td>
+</tr>
+</table>
+
+---
+
+## 🌍 Why It Matters
+
+| Domain | Impact |
+|---|---|
+| 🚜 **Smart Farming** | Field-level contamination mapping & precision agriculture decisions |
+| 🏭 **Grain Processing** | Real-time screening on the line instead of after-the-fact lab results |
+| 🛡️ **Food Safety & Compliance** | Faster regulatory checks, batch certification, supply-chain transparency |
+| 💰 **Cost Savings** | Cuts down on expensive, destructive laboratory testing at scale |
+
+---
+
+## 🔭 What's Next
+
+- [ ] Grow the dataset past 1,000 samples for a more robust ANN
+- [ ] Explore CNNs to capture spatial + spectral patterns together
+- [ ] Extend to multi-toxin prediction (not just vomitoxin)
+- [ ] Deploy the dashboard to the cloud (AWS/Azure)
+- [ ] Build a companion mobile app
+- [ ] Connect directly to a live hyperspectral camera feed
+
+---
+
+## 👨‍💻 The Creator
+
+<div align="center">
+<table>
+<tr>
+<td align="center" width="100%">
+
+### Vishal Lokhande
+
+🎓 B.Tech Computer Engineering Student
+💻 Full-Stack Development · Data Science · Machine Learning
+🧠 Data Structures & Algorithms Enthusiast
+🌱 *Passionate about building AI-powered solutions for real-world problems*
+
+[![GitHub](https://img.shields.io/badge/GitHub-VishalLokhande7-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/VishalLokhande7)
+
+</td>
+</tr>
+</table>
+</div>
+
+> *"Turning imagination into reality through code."*
+
+---
+
+## 🤝 The Team
+
+This was a **team hackathon build** — SpectraCorn AI wouldn't exist without everyone's contribution. Here's specifically what **Vishal** brought to the table:
+
+- 🤖 Machine learning model training & evaluation
+- 🧹 Data preprocessing & feature engineering
+- 📉 PCA-based dimensionality reduction
+- ⚖️ Model performance comparison & analysis
+- 📝 Project documentation & GitHub management
+- 📊 Result visualization & interpretation
+- 🎤 Project presentation support
+
+---
+
+## ⭐ Support This Project
+
+If **SpectraCorn AI** was useful, interesting, or just made you appreciate corn a little more — drop a ⭐ on the repo!
+
+<div align="center">
+
+**Connect with Vishal Lokhande**
+
+[![GitHub](https://img.shields.io/badge/GitHub-Follow-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/VishalLokhande7)
+
+</div>
