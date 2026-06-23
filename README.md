@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🌽 SpectraCorn AI
+# 🌽 Hyperspectral Corn Analysis
 ### Predicting Vomitoxin Contamination in Corn with Hyperspectral Imaging
 
 *A Hackathon project that turns 448 wavelengths of light into a food-safety decision in seconds.*
@@ -197,7 +197,7 @@ Visualize which of the 448 bands actually drive the prediction, via feature impo
 
 ## 🤝 The Team
 
-This was a **team hackathon build** — SpectraCorn AI wouldn't exist without everyone's contribution. Here's specifically what **Vishal** brought to the table:
+This was a **team hackathon build** — Hyperspectral Corn Analysis wouldn't exist without everyone's contribution. Here's specifically what **Vishal** brought to the table:
 
 - 🤖 Machine learning model training & evaluation
 - 🧹 Data preprocessing & feature engineering
@@ -211,7 +211,7 @@ This was a **team hackathon build** — SpectraCorn AI wouldn't exist without ev
 
 ## ⭐ Support This Project
 
-If **SpectraCorn AI** was useful, interesting, or just made you appreciate corn a little more — drop a ⭐ on the repo!
+If **Hyperspectral Corn Analysis** was useful, interesting, or just made you appreciate corn a little more — drop a ⭐ on the repo!
 
 <div align="center">
 
